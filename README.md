@@ -1,6 +1,6 @@
 #SDLO
 
-##a object oriented frontend for SDL
+##an object oriented frontend for SDL
 
 SDL is a great C library, and I just want to write somes classes to use it in an 100% oriented object style.
 
