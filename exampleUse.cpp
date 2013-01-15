@@ -2,18 +2,19 @@
 #include <SDL.h>
 #include "screen.hpp"
 
-//this main is just for ilustration
+//This main is just for ilustration
 
 int main()
 {
-    std::cout << "Hello new world!" << std::endl;
-    Screen screenObject;
+    Screen screenObject; //Create Screen
     
-    screenObject.startVideo();
-    screenObject.setTitle("Test SDL++");
+    
+    screenObject.startVideo(); //Launch SDL video system 
+    screenObject.setTitle("Test SDL++"); //Set window Title
     
 
-    getchar();
+    getchar();//pause the program, we cant use events for now so we can't create a proper loop.
+                //you will have problems about sopping your program if you create an infinite loop :-P 
     return 0;
 }
 
