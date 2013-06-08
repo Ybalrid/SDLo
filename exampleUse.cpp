@@ -12,7 +12,7 @@ int main()
 
     screenObject.startVideo(); //Launch SDL video system    
     screenObject.setTitle("Test SDL++"); //Set window Title 
-
+    screenObject.setWidth(1024);
     getchar();//pause the program, we cant use events for now cause we can't create a proper loop.
                 //you will have problems about sopping your program if you create an infinite loop :-P 
     return 0;

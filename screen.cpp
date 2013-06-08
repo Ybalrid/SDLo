@@ -2,25 +2,29 @@
 
 using namespace SDLo;
 
-Screen::Screen() //constructor
+Screen::Screen() : 
+    w(800),
+    h(600),
+    p_col(24),
+    fullScreen(false),
+    video(false),
+    waitEvent(true),
+    screenSurface(NULL)
 {
-    screenSurface = NULL; //initialise pointer
-    p_col = 24;           //base color : 24bit
-    fullScreen = false;   //no fullscreen 
-    w = 800;              //base size
-    h = 600;
-    waitEvent = true;     //pause programm until event  
-    video = false;        //video not running
 }
 
 void Screen::setWidth(int width)
 {
     w = width;
+    if(videoStarted())
+        startVideo(); //we reset the video system
 }
 
 void Screen::setHeight(int height)
 {
     h = height;
+    if(videoStarted())
+        startVideo();
 }
 
 void Screen::setPColor(int p_color)
@@ -38,9 +42,10 @@ Screen* Screen::getScreen()
     return this;
 }
 
-//only when video is running :
 void Screen::setTitle(char const title[])
-{   if(videoStarted())
+{   
+    //only when video is running :
+    if(videoStarted())
     {
         SDL_WM_SetCaption(title,NULL);
     }
@@ -52,10 +57,10 @@ void Screen::startVideo()
 
     screenSurface = SDL_SetVideoMode(w,h,p_col, SDL_HWSURFACE | SDL_DOUBLEBUF); //create window
     if (screenSurface != NULL)  //if no problem
-        {
-            SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0,0,0)); //fill it in black
-            video = true;
-        }
+    {
+        SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0,0,0)); //fill it in black
+        video = true;
+    }
     else                        //if problem
         video = false;
 }
