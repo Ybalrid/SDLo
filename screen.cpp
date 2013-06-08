@@ -9,6 +9,7 @@ Screen::Screen() :
     fullScreen(false),
     video(false),
     waitEvent(true),
+    alive(false),
     screenSurface(NULL)
 {
 }
@@ -60,6 +61,7 @@ void Screen::startVideo()
     {
         SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0,0,0)); //fill it in black
         video = true;
+        alive = true;
     }
     else                        //if problem
         video = false;

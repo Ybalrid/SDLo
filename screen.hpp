@@ -1,21 +1,37 @@
-#include <stdio.h>
+#ifndef SCREEN
+#define SCREEN
+
+#include <vector>
+#include <cstdio>
 #include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+
+#include "sprite.hpp"
 
 namespace SDLo 
 {
     class Screen
     {
         public:
-            Screen();                   //class constructor
-            void setWidth(int width);   //set window height
-            void setHeight(int height);
-            void setPColor(int p_color);
+            Screen();                  //class constructor
 
-            void startVideo();
+            //class setters
+            void setWidth(int width);       //set window Width
+            void setHeight(int height);     //set window Height
+            void setPColor(int p_color);    //only usefull BEFORE startign video
             void setTitle(char const title[]);
+            
+            void startVideo();
 
+            //class getters
+            int getWidth(){return w;}
+            int getHeight(){return h;}
+            
             bool videoStarted();
+            bool isAlive() {return alive;}
             Screen* getScreen();
+
         private:
             int w;
             int h;
@@ -25,7 +41,10 @@ namespace SDLo
             bool video;
 
             bool waitEvent;
-
+            bool alive;
             SDL_Surface* screenSurface;
+            std::vector <Sprite*> sprites;
     };
 };
+
+#endif 
