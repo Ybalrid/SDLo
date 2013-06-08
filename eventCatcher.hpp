@@ -3,14 +3,18 @@
 #include <SDL.h>
 #include <iostream>
 
-class EventCatcher
+namespace SDLo
 {
-public:
-        EventCatcher();
-        ~EventCatcher();
-protected:
-private:
 
-};
+    class EventCatcher
+    {
+        public:
+            EventCatcher();
+            ~EventCatcher();
+        protected:
+        private:
+
+    };
+}
 
 #endif

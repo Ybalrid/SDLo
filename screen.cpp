@@ -1,5 +1,7 @@
 #include "screen.hpp"
 
+using namespace SDLo;
+
 Screen::Screen() //constructor
 {
     screenSurface = NULL; //initialise pointer
