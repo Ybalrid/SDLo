@@ -67,3 +67,13 @@ void Screen::startVideo()
         video = false;
 }
 
+
+void Screen::addSprite(Sprite* sprite)
+{
+    sprites.push_back(sprite);
+}
+
+void Screen::updateVideo()
+{
+
+}

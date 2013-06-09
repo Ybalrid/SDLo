@@ -23,6 +23,9 @@ namespace SDLo
             void setTitle(char const title[]);
             
             void startVideo();
+            void updateVideo();
+
+            void addSprite(Sprite* sprite);
 
             //class getters
             int getWidth(){return w;}
