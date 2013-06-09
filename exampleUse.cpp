@@ -9,13 +9,12 @@ int main()
 {
     Screen screenObject; //Create Screen
 
-
     screenObject.startVideo(); //Launch SDL video system    
     screenObject.setTitle("Test SDL++"); //Set window Title 
     
-    //Changing size after showing the window
-    screenObject.setWidth(500);
-    screenObject.setHeight(500); 
+    //Changing size after showing the window MAY CAUSE BUG
+    //screenObject.setWidth(500);
+    //screenObject.setHeight(500); 
     
     Sprite* perso = screenObject.addSprite(new Sprite);
     
@@ -24,12 +23,12 @@ int main()
     perso->setPos(40,10);
 
 
-
-    screenObject.updateVideo();
-
-    getchar();//pause the program, we cant use events for now cause we can't create a proper loop.
-                //you will have problems about sopping your program if you create an infinite loop :-P 
-    
+    while(screenObject.isAlive())
+    {
+        SDL_Delay(1);
+        screenObject.testEvents();
+        screenObject.updateVideo();
+    }
 
     return 0;
 }

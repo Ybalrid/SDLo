@@ -1,12 +1,14 @@
 #ifndef SCREEN
 #define SCREEN
 
+#include <iostream>
 #include <vector>
 #include <cstdio>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
+#include "eventCatcher.hpp"
 #include "sprite.hpp"
 
 namespace SDLo 
@@ -33,9 +35,14 @@ namespace SDLo
             
             bool videoStarted();
             bool isAlive() {return alive;}
+            
+            void testEvents();
+
             Screen* getScreen();
 
         private:
+            EventCatcher* eCatcher;            
+            
             int w;
             int h;
             int p_col;
@@ -47,7 +54,10 @@ namespace SDLo
             bool alive;
             SDL_Surface* screenSurface;
             std::vector <Sprite*> sprites;
+            SDL_Event* e; 
+
     };
 };
 
 #endif 
+

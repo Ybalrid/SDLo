@@ -3,6 +3,7 @@
 using namespace SDLo;
 
 Screen::Screen() : 
+    eCatcher(new EventCatcher()),
     w(800),
     h(600),
     p_col(24),
@@ -10,7 +11,8 @@ Screen::Screen() :
     video(false),
     waitEvent(true),
     alive(false),
-    screenSurface(NULL)
+    screenSurface(NULL),
+    e(NULL)
 {
 }
 
@@ -65,6 +67,23 @@ void Screen::startVideo()
     }
     else                        //if problem
         video = false;
+}
+
+void Screen::testEvents()
+{
+    if(waitEvent)
+        eCatcher->waitEvent();
+    else
+        eCatcher->catchEvent();
+
+    SDL_Event e = eCatcher->getEvent();
+
+    switch(e.type)
+    {
+        case SDL_QUIT:
+            alive = false;
+            return;
+    }
 }
 
 
