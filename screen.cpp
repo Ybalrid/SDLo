@@ -59,7 +59,7 @@ void Screen::startVideo()
     screenSurface = SDL_SetVideoMode(w,h,p_col, SDL_HWSURFACE | SDL_DOUBLEBUF); //create window
     if (screenSurface != NULL)  //if no problem
     {
-        SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0,0,0)); //fill it in black
+        SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 150,150,150)); //fill it in black
         video = true;
         alive = true;
     }
@@ -68,12 +68,21 @@ void Screen::startVideo()
 }
 
 
-void Screen::addSprite(Sprite* sprite)
+Sprite* Screen::addSprite(Sprite* sprite)
 {
     sprites.push_back(sprite);
+    return sprite;
 }
 
 void Screen::updateVideo()
 {
-
+        SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 150,150,150)); //fill it in black
+    for(unsigned int i = 0; i < sprites.size(); i++)
+        {
+            sprites[i]->setNewTime(SDL_GetTicks());
+            if(sprites[i]->display())
+                SDL_BlitSurface(sprites[i]->getSurface(), NULL, screenSurface, sprites[i]->getPos());
+        }
+    SDL_Flip(screenSurface);
 }
+

@@ -8,7 +8,9 @@ Sprite::Sprite() :
     fps(+0.0), 
     animatedPos(0), 
     beginAnimation(0), 
-    endAnimation(0)
+    endAnimation(0),
+    curTime(0),
+    lastTime(0)
 {
    currentPosOnScreen.x = 0;
    currentPosOnScreen.y = 0;
@@ -34,3 +36,15 @@ void Sprite::addFrame(SDL_Surface* newFrame)
     if(newFrame != NULL)
         frames.push_back(newFrame);
 }
+
+void Sprite::setNewTime(int time)
+{
+    lastTime = curTime;
+    curTime = time;
+}
+
+void Sprite::updateAnimation()
+{
+}
+
+

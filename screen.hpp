@@ -25,7 +25,7 @@ namespace SDLo
             void startVideo();
             void updateVideo();
 
-            void addSprite(Sprite* sprite);
+            Sprite* addSprite(Sprite* sprite);
 
             //class getters
             int getWidth(){return w;}
