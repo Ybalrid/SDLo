@@ -9,12 +9,11 @@ int main()
 {
     Screen screenObject; //Create Screen
 
+    screenObject.setWidth(500);
+    screenObject.setHeight(500); 
+    
     screenObject.startVideo(); //Launch SDL video system    
     screenObject.setTitle("Test SDL++"); //Set window Title 
-    
-    //Changing size after showing the window MAY CAUSE BUG
-    //screenObject.setWidth(500);
-    //screenObject.setHeight(500); 
     
     Sprite* perso = screenObject.addSprite(new Sprite);
     
