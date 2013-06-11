@@ -9,7 +9,7 @@ Screen::Screen() :
     p_col(24),
     fullScreen(false),
     video(false),
-    waitEvent(true),
+    waitEvent(false),
     alive(false),
     screenSurface(NULL)
 {

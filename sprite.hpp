@@ -1,6 +1,7 @@
 #ifndef SPRITES_SDLo
 #define SPRITES_SDLo
 
+#include <iostream>
 #include <vector>
 #include <SDL.h>
 
@@ -22,7 +23,11 @@ namespace SDLo
             }
             void updateAnimation();
             void addFrame(SDL_Surface* newFrame);
-            void setCanBeDisplayed(bool canBe);
+            void setCanBeDisplayed(bool canBe = true);
+
+            void setFps(double newFps);
+            void setAnimBounds(unsigned int begin,unsigned int end);
+            void setAnimated(bool anim = true);
 
             bool display(){return canBeDisplayed;}
             

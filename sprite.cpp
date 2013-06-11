@@ -39,7 +39,7 @@ void Sprite::addFrame(SDL_Surface* newFrame)
 
 void Sprite::setNewTime(int time)
 {
-    lastTime = curTime;
+    //std::cerr << "newTime = " << time << std::endl;
     curTime = time;
 
     updateAnimation();
@@ -47,11 +47,36 @@ void Sprite::setNewTime(int time)
 
 void Sprite::updateAnimation()
 {
-    if(curTime - lastTime > (1/fps)*1000)
-    {
-        if(animatedPos + 1 >= endAnimation)
-            animatedPos = beginAnimation;
-        else 
-            animatedPos++;
-    }
+    if(animated)
+        if(curTime - lastTime > (1/fps)*1000)
+        {
+            /*std::cerr << "curTime = " << curTime << std::endl
+                << "lastTime = " << lastTime << std::endl
+                << "Delay = " << (1/fps)*1000 << std::endl;
+            */
+            lastTime = curTime;
+            if(animatedPos + 1 >= endAnimation)
+                animatedPos = beginAnimation;
+            else 
+                animatedPos++;
+        }
+}
+
+void Sprite::setFps(double newFps)
+{
+    fps = newFps;
+}
+
+void Sprite::setAnimBounds(unsigned int begin, unsigned int end)
+{
+    beginAnimation = begin;
+    if(end < frames.size())
+        endAnimation = end;
+    else
+        endAnimation = frames.size() - 1;
+}
+
+void Sprite::setAnimated(bool anim)
+{
+    animated = anim;
 }
