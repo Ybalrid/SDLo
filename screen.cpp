@@ -96,7 +96,7 @@ Sprite* Screen::addSprite(Sprite* sprite)
 
 void Screen::updateVideo()
 {
-        SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 150,150,150)); //fill it in black
+        SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 150,150,150)); //fill it in grey
     for(unsigned int i = 0; i < sprites.size(); i++)
         {
             sprites[i]->setNewTime(SDL_GetTicks());
