@@ -54,7 +54,7 @@ namespace SDLo
             bool alive;
             SDL_Surface* screenSurface;
             std::vector <Sprite*> sprites;
-            SDL_Event* e; 
+            SDL_Event lastEvent; 
 
     };
 };

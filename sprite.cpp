@@ -41,10 +41,17 @@ void Sprite::setNewTime(int time)
 {
     lastTime = curTime;
     curTime = time;
+
+    updateAnimation();
 }
 
 void Sprite::updateAnimation()
 {
+    if(curTime - lastTime > (1/fps)*1000)
+    {
+        if(animatedPos + 1 >= endAnimation)
+            animatedPos = beginAnimation;
+        else 
+            animatedPos++;
+    }
 }
-
-

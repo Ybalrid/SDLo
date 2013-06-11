@@ -11,8 +11,7 @@ Screen::Screen() :
     video(false),
     waitEvent(true),
     alive(false),
-    screenSurface(NULL),
-    e(NULL)
+    screenSurface(NULL)
 {
 }
 
@@ -84,6 +83,8 @@ void Screen::testEvents()
             alive = false;
             return;
     }
+
+    lastEvent = e; 
 }
 
 

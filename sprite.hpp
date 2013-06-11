@@ -30,7 +30,8 @@ namespace SDLo
             bool canBeDisplayed;
             bool animated;
             double fps;
-            int animatedPos;
+
+            unsigned int animatedPos;
 
             unsigned int beginAnimation;
             unsigned int endAnimation;
