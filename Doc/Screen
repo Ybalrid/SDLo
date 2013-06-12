@@ -1,0 +1,80 @@
+Created by Ybalrid (Arthur Brainville)
+12/06/13 02:26 CEST (UTC +0200)
+
+Screen : Screen class.
+Represent your Screen.
+
+Member of SDLo namespace.
+
+Constructor :
+Screen::Screen()
+
+Setters :
+Screen::setWidth(int width)
+Set the width of the screen
+    param : 
+        int width -> width
+
+    return : nothing
+
+Screen::setHight(int height)
+Set the height of the screen
+    param : 
+        int height -> height
+
+    return :
+        void
+
+
+Screen::setTitle(char const title[])
+Set the title of the window
+    param :
+        char const title[] -> title of the window
+    return : 
+        void
+
+Getters : 
+Screen::getWidth()
+return :
+    width
+
+Screen::getHeight()
+return :  
+    height
+
+Screen::videoStarted()
+return :
+    true if video is started
+
+Screen::isAlive()
+return :    
+    true if aplication have to continue
+    false if aplication have to stop
+
+Screen::getScreen()
+return :
+    A pointer to the Screen object itself
+
+Other methods :
+Screen::startVideo()
+Start the SDL Video Subsystem with the parameters set on the object
+return :
+    void
+
+Screen::updateVideo()
+Refresh the window
+return :
+    void
+
+Screen::testEvent()
+Request testing of events
+The kind of test is set by the "waitEvent" atribute. If waitEvent is true (false by default) wait for someting hapening on the window
+return :
+    void
+
+Screen::addSprite(Sprite* sprite = new Sprite)
+Add a sprite to the 2d world
+If no sprite specified, it will create a new one.
+return :
+    pointer to the sprite added on the SDLo 2d world
+
