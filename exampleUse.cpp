@@ -23,7 +23,7 @@ int main()
     //all sprites can play animations, so you can load as many images you need to play animations.
     
     //let just start with a still image
-    perso->addFrame(IMG_Load("tux.png")); //only one frame
+    perso->addFrame(IMG_Load("ressources/tux.png")); //only one frame
 
     perso->setCanBeDisplayed(); //if you dont tel SDLo to display it, it will not be displayed. You can change the state by passing 'false' in argument
 
@@ -37,7 +37,7 @@ int main()
     for(int i = 0; i < 6; i++)
     {
         std::stringstream file;
-        file <<"tux_walk/walk-" << i << ".png";
+        file <<"ressources/tux_walk/walk-" << i << ".png";
         std::cerr << "Loading file :" << file.str() << std::endl;
 
         walkTux->addFrame(IMG_Load(file.str().c_str()));
