@@ -26,8 +26,9 @@ namespace SDLo
             
             void startVideo();
             void updateVideo();
+            void testEvents();
 
-            Sprite* addSprite(Sprite* sprite);
+            Sprite* addSprite(Sprite* sprite = new Sprite);
 
             //class getters
             int getWidth(){return w;}
@@ -36,7 +37,6 @@ namespace SDLo
             bool videoStarted();
             bool isAlive() {return alive;}
             
-            void testEvents();
 
             Screen* getScreen();
 
