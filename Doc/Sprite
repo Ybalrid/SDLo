@@ -1,0 +1,87 @@
+Created by Ybalrid (Arthur Brainville)
+14/06/13 02:26 CEST (UTC +0200)
+
+Sprite : Sprite class.
+Represent a Sprite.
+
+Member of SDLo namespace.
+
+Constructor :
+Sprite::Sprite()
+
+Setters :
+Sprite::setNewTime
+Set elapsed time since you lanch the program
+    param : 
+        int time -> rime in ms
+
+    return : nothing
+
+Sprite::setPos
+Set on screen position
+    param : 
+        int x -> x
+        int y -> y
+
+    return :
+        void
+
+Sprite::setCanBeDisplayed(bool canBe = true)
+Set the display state of the sprite
+    praram
+        bool canBe -> true  => the sprite can be displayed
+                   -> false => the sprite cannot be displayed
+    return :
+        void
+
+
+Sprite::setFPS(double newFps)
+Set animation speed
+    param : 
+        double newFps -> speed in frames per second
+
+    return : nothing
+
+
+Sprite::setAnimBounds(unsigned int begin, unsigned int end)
+Set bounds on the frame array for the animation loop
+    param : 
+        unsigned int begin -> begin of animation
+        unsigned int end   -> end of animation
+
+    return : nothing
+
+
+Sprite::setAnimated(bool anim = true)
+Set bounds on the frame array for the animation loop
+    param : 
+        bool anime -> true  => sprite play animation
+                      false => sprite doesn't play animation
+
+    return : nothing
+
+
+
+Getters : 
+
+Sprite::getSurface
+return :
+    the SDL_Surface* that have to be bliten by SDL on the screen surface
+
+Sprite::display
+return :
+    true if the sprite have to be displayed on screen
+
+Other methods :
+
+Sprite::updateAnimation()
+update the surface that you have to display
+return :
+    void
+
+Sprite::addFrar(SDL_Surface* newFrame)
+Add a frame to the frame array
+param :
+    SDL_Surface* newFrame -> surface to add to the frame array
+return :
+    void
